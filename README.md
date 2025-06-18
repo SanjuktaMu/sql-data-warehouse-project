@@ -1,3 +1,4 @@
+
 # 🏢 SQL Data Warehouse & Analytics Project
 
 Welcome to the **SQL Data Warehouse & Analytics Project** repository! 🚀  
@@ -104,17 +105,18 @@ Write SQL to support business insights and reporting use cases
 
 ---
 
-## 📂 Folder Structure
+## 📂 Project Directory Structure
 
--- Project Directory Structure
+```plaintext
 sql-data-warehouse-project/
 │
-├── datasets/              -- Contains source CSV files from ERP and CRM systems
-├── scripts/               -- SQL scripts for ETL, transformation, and data loading
-├── docs/                  -- Documentation such as data dictionary, ER diagrams, schema details
-├── diagrams/              -- Data architecture diagrams (e.g., Medallion Architecture, star schema)
-├── dashboards/ (optional) -- Power BI or Tableau reports and dashboards
-└── README.md              -- Main project documentation (this file)
+├── datasets/              -- 📂 Contains ERP & CRM CSV files
+├── docs/                  -- 📄 Documentation like data dictionary, ER diagrams, schema design
+├── scripts/               -- 🧾 SQL scripts for ETL pipelines and transformations (Bronze → Silver → Gold)
+├── tests/                 -- ✅ SQL scripts for data quality validation and testing
+├── LICENSE                -- 📜 MIT License for open-source sharing
+└── README.md              -- 📘 This documentation file
+```
 
 ---
 
@@ -166,10 +168,8 @@ To clone and run the project:
 ```bash
 git clone https://github.com/your-username/sql-data-warehouse-project.git
 cd sql-data-warehouse-project
+```
+
+Open SQL Server Management Studio and run scripts from the `scripts/` folder in order. You can use the `tests/` folder for data quality checks.
 
 ---
-
-Let me know if you'd like this version:
-- As a **downloadable Markdown file**
-- Converted into a **PDF for submission**
-- Enhanced with **badges**, **GitHub Actions**, or a **visual project roadmap**!
