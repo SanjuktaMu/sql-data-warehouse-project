@@ -1,0 +1,82 @@
+Here is your **Data Catalog for the Gold Layer**, reformatted with proper **section headings**, clean **table structures**, and a layout that's suitable for documents, wikis, or presentations.
+
+---
+
+# 📘 **Data Catalog – Gold Layer**
+
+The **Gold Layer** serves as the **business-level data representation** within the data warehouse. It is organized into **Dimension Tables** and **Fact Tables**, which support reporting, dashboards, and analytics.
+
+---
+
+## 🔹 **1. Dimension Table: `gold.dim_customers`**
+
+### 📌 Purpose
+
+Stores customer profile information enriched with **demographics** and **geographic details** to support customer analytics.
+
+### 🧾 Schema Definition
+
+| **Column Name**   | **Data Type**  | **Description**                                                      |
+| ----------------- | -------------- | -------------------------------------------------------------------- |
+| `customer_key`    | `INT`          | Surrogate key uniquely identifying each customer record.             |
+| `customer_id`     | `INT`          | System-generated unique identifier for each customer.                |
+| `customer_number` | `NVARCHAR(50)` | Alphanumeric reference used to track and identify customers.         |
+| `first_name`      | `NVARCHAR(50)` | Customer's first name.                                               |
+| `last_name`       | `NVARCHAR(50)` | Customer's last/family name.                                         |
+| `country`         | `NVARCHAR(50)` | Country of residence (e.g., 'Australia').                            |
+| `marital_status`  | `NVARCHAR(50)` | Marital status of the customer (e.g., 'Married', 'Single').          |
+| `gender`          | `NVARCHAR(50)` | Gender of the customer (e.g., 'Male', 'Female', 'n/a').              |
+| `birthdate`       | `DATE`         | Date of birth in `YYYY-MM-DD` format.                                |
+| `create_date`     | `DATE`         | Timestamp when the customer record was created in the source system. |
+
+---
+
+## 🔹 **2. Dimension Table: `gold.dim_products`**
+
+### 📌 Purpose
+
+Provides detailed information about each product, including its **hierarchy**, **category**, and **cost attributes**.
+
+### 🧾 Schema Definition
+
+| **Column Name**        | **Data Type**  | **Description**                                                     |
+| ---------------------- | -------------- | ------------------------------------------------------------------- |
+| `product_key`          | `INT`          | Surrogate key uniquely identifying each product record.             |
+| `product_id`           | `INT`          | System-generated unique identifier for the product.                 |
+| `product_number`       | `NVARCHAR(50)` | Alphanumeric product code used for categorization and tracking.     |
+| `product_name`         | `NVARCHAR(50)` | Descriptive name of the product (type, color, size, etc.).          |
+| `category_id`          | `NVARCHAR(50)` | Identifier for the high-level category the product belongs to.      |
+| `category`             | `NVARCHAR(50)` | Broad classification (e.g., 'Bikes', 'Components').                 |
+| `subcategory`          | `NVARCHAR(50)` | Sub-level classification or type of product within the category.    |
+| `maintenance_required` | `NVARCHAR(50)` | Indicates whether the product requires maintenance ('Yes' or 'No'). |
+| `cost`                 | `INT`          | Base cost or price of the product.                                  |
+| `product_line`         | `NVARCHAR(50)` | Series or family of products (e.g., 'Road', 'Mountain').            |
+| `start_date`           | `DATE`         | Date the product was launched or became available for sale.         |
+
+---
+
+## 🔹 **3. Fact Table: `gold.fact_sales`**
+
+### 📌 Purpose
+
+Captures **sales transactions** for each customer and product. Used for reporting on **revenue**, **order volume**, and **sales trends**.
+
+### 🧾 Schema Definition
+
+| **Column Name** | **Data Type**  | **Description**                                                        |
+| --------------- | -------------- | ---------------------------------------------------------------------- |
+| `order_number`  | `NVARCHAR(50)` | Unique alphanumeric identifier for each sales order (e.g., 'SO54496'). |
+| `product_key`   | `INT`          | Foreign key referencing `dim_products.product_key`.                    |
+| `customer_key`  | `INT`          | Foreign key referencing `dim_customers.customer_key`.                  |
+| `order_date`    | `DATE`         | Date when the order was placed.                                        |
+| `shipping_date` | `DATE`         | Date when the order was shipped.                                       |
+| `due_date`      | `DATE`         | Date the payment was due.                                              |
+| `sales_amount`  | `INT`          | Total value of the sale (quantity × unit price).                       |
+| `quantity`      | `INT`          | Number of units sold.                                                  |
+| `price`         | `INT`          | Price per unit of the product.                                         |
+
+---
+
+
+
+
