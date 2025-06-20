@@ -127,7 +127,7 @@ Hi! I'm **Sanjukta Mukherjee**, a final-year BTech Computer Science student at *
 I'm passionate about:
 
 - 🔧 **Data Engineering & Analytics**
-- 💻 **SQL, Python, and Web Development**
+- 💻 **SQL, Java,DSA and Web Development**
 - 🤖 **Artificial Intelligence and Machine Learning**
 
 > This project reflects my interest in solving real-world business problems using data.
